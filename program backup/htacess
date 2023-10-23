@@ -1,0 +1,14 @@
+# .htaccess
+# Sunucu ve yerelde çalışan .htaccess dosyası
+
+# Bu kural kullanıcı girişi yapılmadan hiçbir sayfaya erişimi engeller
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_URI} !^/login\.php
+    RewriteCond %{REQUEST_URI} !^/config/ # config klasörüne erişimi engelle
+    <!-- RewriteCond %{REQUEST_URI} !^/css/ # css klasörüne erişimi engelle
+    RewriteCond %{REQUEST_URI} !^/js/ # js klasörüne erişimi engelle
+    RewriteCond %{REQUEST_URI} !^/images/ # images klasörüne erişimi engelle -->
+    RewriteRule ^ - [F]
+</IfModule>
